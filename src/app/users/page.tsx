@@ -1,12 +1,13 @@
 import UsersTable from "@/components/users/users.table";
 
 const UserPage = async (props: any) => {
-  const LIMIT = 1;
+  const LIMIT = 3;
   const page = props?.searchParams?.page ?? 1;
   const res = await fetch(
     `http://localhost:8000/users?_page=${page}&_limit=${LIMIT}`,
     {
       method: "GET",
+      next: {tags: ['list-users']}
     }
   );
   const total_items = +(res.headers?.get("X-Total-Count") ?? 0);

@@ -8,6 +8,11 @@ import Link from 'next/link';
 
 const items: MenuProps['items'] = [
   {
+    label: <Link href={"/"}>Home Page</Link>,
+    key: 'homepage',
+    icon: <MailOutlined />,
+  },
+  {
     label: <Link href={"/users"}>Manage Users</Link>,
     key: 'users',
     icon: <MailOutlined />,
@@ -21,7 +26,7 @@ const items: MenuProps['items'] = [
 ];
 
 const Header: React.FC = () => {
-  const [current, setCurrent] = useState('mail');
+  const [current, setCurrent] = useState('homepage');
 
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
